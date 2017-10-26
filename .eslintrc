@@ -1,0 +1,11 @@
+{
+  "extends": "airbnb",
+  "env": {
+      "browser": true,
+      "node": true,
+      "mocha": true
+    },
+  "rules": {
+      "padded-blocks": 0
+    }
+}
