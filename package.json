@@ -4,9 +4,10 @@
   "description": "An unofficial API for Tidal Music",
   "main": "lib/index.js",
   "scripts": {
+    "build": "babel -d lib/ src/",
     "start": "babel-node src/",
-    "test": "mocha --timeout 5000 --require babel-core/register --require babel-polyfill",
-    "compile": "babel -d lib/ src/",
+    "pretest": "npm run build",
+    "test": "mocha --timeout 5000 --require babel-core/register --require babel-polyfill ./test/**/*.js",
     "test:cover": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha"
   },
   "repository": {

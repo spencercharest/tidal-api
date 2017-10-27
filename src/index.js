@@ -65,7 +65,7 @@ class Tidal {
   }
 
   /**
-  * @param {number} id - track id
+  * @param {number} id - album id
   */
   async getAlbum(id) {
     try {
@@ -81,13 +81,29 @@ class Tidal {
   }
 
   /**
-  * @param {number} id - track id
+  * @param {number} id - artist id
   */
   async getArtist(id) {
     try {
       const res = await this.api({
         method: 'GET',
         url: `/artists/${id}?countryCode=${this.countryCode}`,
+      });
+
+      return res.data;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * @param {string} uuid - playlist uuid
+  */
+  async getPlaylist(uuid) {
+    try {
+      const res = await this.api({
+        method: 'GET',
+        url: `/playlists/${uuid}?countryCode=${this.countryCode}`,
       });
 
       return res.data;
