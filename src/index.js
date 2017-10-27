@@ -37,12 +37,28 @@ class Tidal {
     }
 
     try {
-      const { data: { items } } = await this.api({
+      const res = await this.api({
         method: 'GET',
         url: `/search/${type}?query=${query}&limit=${limit}&countryCode=${this.countryCode}`,
       });
 
-      return items;
+      return res.data.items;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * @param {number} id - track id
+  */
+  async getTrack(id) {
+    try {
+      const res = await this.api({
+        method: 'GET',
+        url: `/tracks/${id}?countryCode=${this.countryCode}`,
+      });
+
+      return res.data;
     } catch (e) {
       throw e;
     }
