@@ -18,8 +18,7 @@ describe('getAlbum', () => {
     expect(album).to.include({ id: 47768638 });
   });
 
-  it('should throw an error for an invalid id', async () => {
-    expect(tidal.getAlbum(4776)).to.be.rejectedWith(Error);
-  });
+  it('should throw an error for an invalid id', async () =>
+    expect(tidal.getAlbum(4776)).to.be.rejectedWith(Error));
 
 });

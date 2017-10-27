@@ -1,8 +1,9 @@
 import chai, { expect } from 'chai';
 import chaiThings from 'chai-things';
+import chaiAsPromised from 'chai-as-promised';
 import Tidal from '../src';
 
-chai.use(chaiThings);
+chai.use(chaiThings, chaiAsPromised);
 
 const tidal = new Tidal();
 
@@ -27,4 +28,11 @@ describe('search', () => {
     const tracks = await tidal.search('adele', 'tracks');
     expect(tracks).to.all.have.property('trackNumber');
   });
+
+  it('should throw an error when type is undefined', () =>
+    expect(tidal.search('adele')).to.be.rejectedWith(Error));
+
+  it('should throw an error when type is not valid', () =>
+    expect(tidal.search('adele', 'wrong')).to.be.rejectedWith(Error));
+
 });

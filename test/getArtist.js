@@ -18,7 +18,6 @@ describe('getArtist', () => {
     expect(artist).to.include({ id: 3575680 });
   });
 
-  it('should throw an error for an invalid id', () => {
-    expect(tidal.getArtist(35780)).to.be.rejectedWith(Error);
-  });
+  it('should throw an error for an invalid id', () =>
+    expect(tidal.getArtist(35780)).to.be.rejectedWith(Error));
 });

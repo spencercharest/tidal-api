@@ -18,8 +18,7 @@ describe('getTrack', () => {
     expect(track).to.include({ id: 64975224 });
   });
 
-  it('should throw an error for an invalid id', () => {
-    expect(tidal.getTrack(1234321)).to.be.rejectedWith(Error);
-  });
+  it('should throw an error for an invalid id', () =>
+    expect(tidal.getTrack(1234321)).to.be.rejectedWith(Error));
 
 });
