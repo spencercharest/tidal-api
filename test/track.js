@@ -3,13 +3,17 @@ import Tidal from '../src';
 
 const tidal = new Tidal();
 
-describe('getTrack', () => {
+describe('track', () => {
 
-  it('should return the correct track object', async () => {
-    const track = await tidal.getTrack(64975224);
+  describe('getTrack', () => {
 
-    expect(track).to.be.an('object')
-      .and.to.include({ id: 64975224 });
+    it('should return the correct track object', async () => {
+      const track = await tidal.getTrack(64975224);
+
+      expect(track).to.be.an('object')
+        .and.to.include({ id: 64975224 });
+
+    });
 
   });
 

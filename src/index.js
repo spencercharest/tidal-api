@@ -145,6 +145,25 @@ class Tidal {
   }
 
   /**
+  * get artist EPs and singles by artist id
+  * @param {number} id - artist id
+  */
+  async getArtistEPsAndSingles(id) {
+
+    try {
+
+      const res = await this.api({
+        method: 'GET',
+        url: `/artists/${id}/albums?${this.params}&filter=EPSANDSINGLES`,
+      });
+
+      return res.data.items;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
   * get a playlist by its uuid
   * @param {string} uuid - playlist uuid
   */
