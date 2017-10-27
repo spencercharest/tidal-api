@@ -9,7 +9,7 @@ class Tidal {
     this.webToken = 'wdgaB1CilGA-S_s2';
     this.androidToken = 'kgsOOmYk3zShYrNP';
     this.iosToken = 'GvFhCVAYp3n43EN3';
-    this.countryCode = 'NO';
+    this.countryCode = 'US';
     // current ios and android app versions
     this.appVersion = '2.1.2';
     this.api = axios.create({
@@ -56,6 +56,22 @@ class Tidal {
       const res = await this.api({
         method: 'GET',
         url: `/tracks/${id}?countryCode=${this.countryCode}`,
+      });
+
+      return res.data;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * @param {number} id - track id
+  */
+  async getAlbum(id) {
+    try {
+      const res = await this.api({
+        method: 'GET',
+        url: `/albums/${id}?countryCode=${this.countryCode}`,
       });
 
       return res.data;
