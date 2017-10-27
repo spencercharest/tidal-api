@@ -46,4 +46,17 @@ describe('artist', () => {
     });
   });
 
+  describe('getArtistCompilations', () => {
+
+    it('should return an array of album objects', async () => {
+      const albums = await tidal.getArtistCompilations(3575680);
+
+      expect(albums).to.be.an('array')
+        .and.to.have.lengthOf.above(0);
+
+      expect(albums[0]).to.be.an('object');
+
+    });
+  });
+
 });

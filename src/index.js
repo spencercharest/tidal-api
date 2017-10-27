@@ -56,6 +56,7 @@ class Tidal {
   * @param {number} id - track id
   */
   async getTrack(id) {
+
     try {
       const res = await this.api({
         method: 'GET',
@@ -151,10 +152,27 @@ class Tidal {
   async getArtistEPsAndSingles(id) {
 
     try {
-
       const res = await this.api({
         method: 'GET',
         url: `/artists/${id}/albums?${this.params}&filter=EPSANDSINGLES`,
+      });
+
+      return res.data.items;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * get compliations that artist has appeared on by artist id
+  * @param {number} id - artist id
+  */
+  async getArtistCompilations(id) {
+
+    try {
+      const res = await this.api({
+        method: 'GET',
+        url: `/artists/${id}/albums?${this.params}&filter=COMPILATIONS`,
       });
 
       return res.data.items;
