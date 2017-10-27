@@ -18,6 +18,8 @@ class Tidal {
         'x-tidal-token': this.webToken,
       },
     });
+    // some base params for GET requests
+    this.params = `limit=999&countryCode=${this.countryCode}`;
   }
 
   /**
@@ -68,6 +70,7 @@ class Tidal {
   * @param {number} id - album id
   */
   async getAlbum(id) {
+
     try {
       const res = await this.api({
         method: 'GET',
@@ -84,13 +87,18 @@ class Tidal {
   * @param {number} id - artist id
   */
   async getArtist(id) {
+
     try {
       const res = await this.api({
         method: 'GET',
         url: `/artists/${id}?countryCode=${this.countryCode}`,
       });
 
-      return res.data;
+      const artist = res.data;
+      // convert artist picture to usable link
+      artist.picture = `https://resources.tidal.com/images/${artist.picture.replace(/-/g, '/')}/320x320.jpg`;
+
+      return artist;
     } catch (e) {
       throw e;
     }
