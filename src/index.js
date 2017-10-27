@@ -1,7 +1,8 @@
 import axios from 'axios';
 import 'babel-polyfill';
 
-export default class Tidal {
+/** Class */
+class Tidal {
 
   constructor() {
     this.url = 'https://api.tidal.com/v1';
@@ -19,6 +20,11 @@ export default class Tidal {
     });
   }
 
+  /**
+  * @param {string} query - search query
+  * @param {string} type - search type ('artists', 'albums', 'tracks', 'playlists')
+  * @param {number} [limit] - search limit
+  */
   async search(query, type, limit = 25) {
     const accTypes = ['artists', 'albums', 'tracks', 'playlists'];
 
@@ -43,3 +49,5 @@ export default class Tidal {
   }
 
 }
+
+export default Tidal;
