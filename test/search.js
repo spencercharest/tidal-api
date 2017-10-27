@@ -1,32 +1,20 @@
 import chai, { expect } from 'chai';
-import chaiThings from 'chai-things';
 import chaiAsPromised from 'chai-as-promised';
 import Tidal from '../src';
 
-chai.use(chaiThings, chaiAsPromised);
+chai.use(chaiAsPromised);
 
 const tidal = new Tidal();
 
 describe('search', () => {
 
-  it('should return an array', async () => {
-    const tracks = await tidal.search('adele', 'tracks');
-    expect(tracks).to.be.an('array');
-  });
-
-  it('should return results', async () => {
-    const tracks = await tidal.search('adele', 'tracks');
-    expect(tracks).to.have.lengthOf.above(0);
-  });
-
-  it('should return the number of results specified', async () => {
+  it('should return an array of 25 track objects', async () => {
     const tracks = await tidal.search('adele', 'tracks', 25);
-    expect(tracks).to.all.have.lengthOf(25);
-  });
+    expect(tracks).to.be.an('array')
+      .and.to.have.lengthOf(25);
 
-  it('should return only the specified type', async () => {
-    const tracks = await tidal.search('adele', 'tracks');
-    expect(tracks).to.all.have.property('trackNumber');
+    expect(tracks[0]).to.be.an('object')
+      .and.to.have.property('trackNumber');
   });
 
   it('should throw an error when type is undefined', () =>

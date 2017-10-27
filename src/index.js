@@ -23,6 +23,7 @@ class Tidal {
   }
 
   /**
+  * search for an artist, album, track, or playlist
   * @param {string} query - search query
   * @param {string} type - search type ('artists', 'albums', 'tracks', 'playlists')
   * @param {number} [limit] - search limit
@@ -51,6 +52,7 @@ class Tidal {
   }
 
   /**
+  * get a track by its id
   * @param {number} id - track id
   */
   async getTrack(id) {
@@ -67,6 +69,7 @@ class Tidal {
   }
 
   /**
+  * get an album by its id
   * @param {number} id - album id
   */
   async getAlbum(id) {
@@ -84,6 +87,25 @@ class Tidal {
   }
 
   /**
+  * get album tracks by album id
+  * @param {number} id - album id
+  */
+  async getAlbumTracks(id) {
+
+    try {
+      const res = await this.api({
+        method: 'GET',
+        url: `/albums/${id}/tracks?${this.params}`,
+      });
+
+      return res.data.items;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * get an artist by its id
   * @param {number} id - artist id
   */
   async getArtist(id) {
@@ -94,8 +116,8 @@ class Tidal {
         url: `/artists/${id}?countryCode=${this.countryCode}`,
       });
 
-      const artist = res.data;
       // convert artist picture to usable link
+      const artist = res.data;
       artist.picture = `https://resources.tidal.com/images/${artist.picture.replace(/-/g, '/')}/320x320.jpg`;
 
       return artist;
@@ -105,6 +127,25 @@ class Tidal {
   }
 
   /**
+  * get artist albums by artist id
+  * @param {number} id - artist id
+  */
+  async getArtistAlbums(id) {
+
+    try {
+      const res = await this.api({
+        method: 'GET',
+        url: `/artists/${id}/albums?${this.params}`,
+      });
+
+      return res.data.items;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * get a playlist by its uuid
   * @param {string} uuid - playlist uuid
   */
   async getPlaylist(uuid) {
