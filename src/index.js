@@ -80,6 +80,22 @@ class Tidal {
     }
   }
 
+  /**
+  * @param {number} id - track id
+  */
+  async getArtist(id) {
+    try {
+      const res = await this.api({
+        method: 'GET',
+        url: `/artists/${id}?countryCode=${this.countryCode}`,
+      });
+
+      return res.data;
+    } catch (e) {
+      throw e;
+    }
+  }
+
 }
 
 export default Tidal;
