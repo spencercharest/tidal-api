@@ -1,4 +1,5 @@
 import axios from 'axios';
+import qs from 'querystring';
 import 'babel-polyfill';
 
 /** Class */
@@ -7,11 +8,7 @@ class Tidal {
   constructor() {
     this.url = 'https://api.tidal.com/v1';
     this.webToken = 'wdgaB1CilGA-S_s2';
-    this.androidToken = 'kgsOOmYk3zShYrNP';
-    this.iosToken = 'GvFhCVAYp3n43EN3';
     this.countryCode = 'US';
-    // current ios and android app versions
-    this.appVersion = '2.1.2';
     this.api = axios.create({
       baseURL: this.url,
       headers: {
@@ -60,7 +57,7 @@ class Tidal {
     try {
       const res = await this.api({
         method: 'GET',
-        url: `/tracks/${id}?countryCode=${this.countryCode}`,
+        url: `/tracks/${id}?${this.params}`,
       });
 
       return res.data;
@@ -78,7 +75,7 @@ class Tidal {
     try {
       const res = await this.api({
         method: 'GET',
-        url: `/albums/${id}?countryCode=${this.countryCode}`,
+        url: `/albums/${id}?${this.params}`,
       });
 
       return res.data;
@@ -114,14 +111,10 @@ class Tidal {
     try {
       const res = await this.api({
         method: 'GET',
-        url: `/artists/${id}?countryCode=${this.countryCode}`,
+        url: `/artists/${id}?${this.params}`,
       });
 
-      // convert artist picture to usable link
-      const artist = res.data;
-      artist.picture = `https://resources.tidal.com/images/${artist.picture.replace(/-/g, '/')}/320x320.jpg`;
-
-      return artist;
+      return res.data;
     } catch (e) {
       throw e;
     }
@@ -186,11 +179,52 @@ class Tidal {
   * @param {string} uuid - playlist uuid
   */
   async getPlaylist(uuid) {
+
     try {
       const res = await this.api({
         method: 'GET',
-        url: `/playlists/${uuid}?countryCode=${this.countryCode}`,
+        url: `/playlists/${uuid}?${this.params}`,
       });
+
+      return res.data;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  // TODO: getPlaylistTracks
+
+  /**
+  * login with username and password
+  * @param {string} username - tidal login username or email
+  * @param {string} password - tidal login password
+  */
+  async login(username, password) {
+
+    // make sure username and password are valid
+    if (!username || !password) {
+      throw new Error('username and password are required arguments');
+    }
+
+    try {
+      // create the query string for params
+      const params = qs.stringify({
+        username,
+        password,
+        token: this.webToken,
+      });
+
+      const res = await this.api({
+        method: 'POST',
+        url: `/login/username?token=${this.webToken}`,
+        data: params,
+      });
+
+      // store this info for use in other methods
+      this.userId = res.data.userId;
+      this.sessionId = res.data.sessionId;
+      this.countryCode = res.data.countryCode;
+      this.params = `${this.params}&sessionId=${res.data.sessionId}`;
 
       return res.data;
     } catch (e) {

@@ -6,6 +6,7 @@
       "mocha": true
     },
   "rules": {
-      "padded-blocks": 0
+      "padded-blocks": 0,
+      "import/no-extraneous-dependencies": 0
     }
 }

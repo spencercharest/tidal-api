@@ -11,10 +11,7 @@ describe('artist', () => {
       const artist = await tidal.getArtist(3575680);
 
       expect(artist).to.be.an('object')
-        .and.to.include({ id: 3575680 })
-        .and.to.include({
-          picture: 'https://resources.tidal.com/images/04d63cd8/a1a5/42e0/b1ec/8e336b7d9200/320x320.jpg',
-        });
+        .and.to.include({ id: 3575680 });
 
     });
 
