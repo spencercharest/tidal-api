@@ -35,7 +35,8 @@ class Tidal {
             "popularity": 28
         }
     ]
-  * @returns {Promise<{Object[]}>} promise that resolves to an array of objects (object properties are dependent on search type)
+  * @returns {Promise<{Object[]}>} promise that resolves to an array of  \
+  objects (object properties are dependent on search type)
   * @throws {Error}
   */
   async search(query, type, limit = 25) {
@@ -140,7 +141,10 @@ class Tidal {
     "numberOfVideos": 0,
     "numberOfVolumes": 1,
     "releaseDate": "2017-10-27",
-    "copyright": "2017 Weezer under exclusive license to Crush Music / Atlantic Recording Corporation for the United States and Crush Music / WEA International Inc. for the world excluding the United States. A Warner Music Company.",
+    "copyright": "2017 Weezer under exclusive license to Crush Music / \
+    Atlantic Recording Corporation for the United States and Crush Music / \
+    WEA International Inc. for the world excluding the United States. \
+    A Warner Music Company.",
     "type": "ALBUM",
     "version": null,
     "url": "http://www.tidal.com/album/80216363",
@@ -184,7 +188,8 @@ class Tidal {
   * get album tracks by album id
   * @param {number} id - album id
   * @example tidal.getAlbumTracks(80216363)
-  * @returns {Promise<Object[]>} a promise that resolves to an array of track objects (see tidal.getTrack to see track object example)
+  * @returns {Promise<Object[]>} a promise that resolves to an array of track \
+  objects (see tidal.getTrack to see track object example)
   * @throws {Error}
   */
   async getAlbumTracks(id) {
@@ -242,7 +247,8 @@ class Tidal {
     "picture": "04d63cd8-a1a5-42e0-b1ec-8e336b7d9200",
     "popularity": 28
   }
-  * @returns {Promise<Object[]>} a promise that resolves to an array of album objects (see tidal.getAlbum to see album object example)
+  * @returns {Promise<Object[]>} a promise that resolves to an array of \
+  album objects (see tidal.getAlbum to see album object example)
   * @throws {Error}
   */
   async getArtistAlbums(id) {
@@ -263,7 +269,8 @@ class Tidal {
   * get artist EPs and singles by artist id
   * @param {number} id - artist id
   * @example tidal.getArtistEPsAndSingles(3575680)
-  * @returns {Promise<Object[]>} a promise that resolves to an array of album objects (see tidal.getAlbum to see album object example)
+  * @returns {Promise<Object[]>} a promise that resolves to an array of \
+  album objects (see tidal.getAlbum to see album object example)
   * @throws {Error}
   */
   async getArtistEPsAndSingles(id) {
@@ -284,7 +291,8 @@ class Tidal {
   * get compliations that artist has appeared on by artist id
   * @param {number} id - artist id
   * @example tidal.getArtistCompilations(3575680)
-  * @returns {Promise<Object[]>} a promise that resolves to an array of album objects (see tidal.getAlbum to see album object example)
+  * @returns {Promise<Object[]>} a promise that resolves to an array of \
+  album objects (see tidal.getAlbum to see album object example)
   * @throws {Error}
   */
   async getArtistCompilations(id) {
@@ -314,7 +322,13 @@ class Tidal {
     "creator": {
         "id": 0
     },
-    "description": "Get down and dirty with some of the finest soul, funk and four-to-the floor disco out there. Bound to get the blood pumping, this playlist boasts more hits than a boxing match, more hooks than a tackle box and marks the perfect prescription both for champagne days and boogie nights and alike. Whether you feel like being a sex machine or simply wish to dance to the music, rock your body, dig it and don't stop 'til you get enough! ",
+    "description": "Get down and dirty with some of the finest soul, funk \
+    and four-to-the floor disco out there. Bound to get the blood pumping, \
+    this playlist boasts more hits than a boxing match, more hooks than a \
+    tackle box and marks the perfect prescription both for champagne days \
+    and boogie nights and alike. Whether you feel like being a sex machine \
+    or simply wish to dance to the music, rock your body, dig it and don't \
+    stop 'til you get enough! ",
     "duration": 25732,
     "lastUpdated": "2017-01-18T16:31:51.839+0000",
     "created": "2016-09-22T16:42:40.911+0000",
@@ -345,7 +359,8 @@ class Tidal {
   * get a playlist by its uuid
   * @param {string} uuid - playlist uuid
   * @example tidal.getPlaylistTracks('1c5d01ed-4f05-40c4-bd28-0f73099e9648')
-  * @returns {Promise<Object[]>} a promise that resolves to an array of track objects (see tidal.getTrack to see track object example)
+  * @returns {Promise<Object[]>} a promise that resolves to an array of \
+  track objects (see tidal.getTrack to see track object example)
   * @throws {Error}
   */
   async getPlaylistTracks(uuid) {
