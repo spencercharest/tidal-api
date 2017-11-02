@@ -1,1 +1,8 @@
 src/
+out/
+coverage/
+test/
+.eslintrc
+.babelrc
+.gitignore
+.travis.yml
