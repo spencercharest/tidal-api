@@ -1,4 +1,5 @@
 import axios from 'axios';
+import 'babel-polyfill';
 
 /** Class */
 class Tidal {
