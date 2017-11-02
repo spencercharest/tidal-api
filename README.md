@@ -1,6 +1,6 @@
 # tidal-api
 
-An unofficial API wrapper for Tidal Music.
+An unofficial API wrapper for Tidal Music. Tidal does not provide a documented public API so all endpoints have been found using Chrome Dev Network Tools. All methods return promises and are "thenable".
 
 ## Usage
 
@@ -191,7 +191,7 @@ get album tracks by album id
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
 
-**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of track objects (see tidal.getTrack to see track object example)
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of track objects (see [tidal.getTrack](#Tidal+getTrack) to see track object example)
 
 **Throws**:
 
@@ -243,7 +243,7 @@ get artist albums by artist id
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
 
-**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see tidal.getAlbum to see album object example)
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see [tidal.getAlbum](#Tidal+getAlbum) to see album object example)
 
 **Throws**:
 
@@ -273,7 +273,7 @@ get artist EPs and singles by artist id
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
 
-**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see tidal.getAlbum to see album object example)
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see [tidal.getAlbum](#Tidal+getAlbum) to see album object example)
 
 **Throws**:
 
@@ -295,7 +295,7 @@ get compliations that artist has appeared on by artist id
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
 
-**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see tidal.getAlbum to see album object example)
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see [tidal.getAlbum](#Tidal+getAlbum) to see album object example)
 
 **Throws**:
 
@@ -359,7 +359,7 @@ get a playlist by its uuid
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
 
-**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of track objects (see tidal.getTrack to see track object example)
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of track objects (see [tidal.getTrack](#Tidal+getTrack) to see track object example)
 
 **Throws**:
 
@@ -438,3 +438,7 @@ tidal.search('Four Year Strong', 'artists', 1)
   }
 })();
 ```
+
+## Future Plans
+
+In the next major release I plan to implement authenticated methods such as login, getFavoriteArtists, getFavoriteAlbums, addToFavoriteArtists, etc. Stay tuned!
