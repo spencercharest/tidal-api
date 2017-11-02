@@ -247,8 +247,8 @@ get artist albums by artist id
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
 
 **Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of \
-  album objects (see tidal.getAlbum to see album object example)
-  
+  album objects (see [tidal.getAlbum](#Tidal+getAlbum) to see album object example)
+
 **Throws**:
 
 - <code>Error</code>
