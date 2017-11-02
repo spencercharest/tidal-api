@@ -7,8 +7,9 @@
     "build": "babel -d lib/ src/",
     "start": "babel-node src/",
     "pretest": "npm run build",
-    "test": "npm run build && mocha --timeout 5000 --require babel-core/register --require babel-polyfill ./test/**/*.js",
-    "test:cover": "npm run build && babel-node ./node_modules/.bin/babel-istanbul cover _mocha -- --timeout 5000"
+    "test": "mocha --timeout 5000 --require babel-core/register --require babel-polyfill ./test/**/*.js",
+    "test:cover": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha -- --timeout 5000",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,8 @@
   },
   "homepage": "https://github.com/spencercharest/tidal-api#readme",
   "dependencies": {
-    "axios": "^0.17.0"
+    "axios": "^0.17.0",
+    "jsdoc-to-markdown": "^3.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
