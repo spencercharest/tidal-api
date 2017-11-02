@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/spencercharest/tidal-api.svg?branch=master)](https://travis-ci.org/spencercharest/tidal-api)
+[![Coverage Status](https://coveralls.io/repos/github/spencercharest/tidal-api/badge.svg?branch=master)](https://coveralls.io/github/spencercharest/tidal-api?branch=master)
+
 # tidal-api
 
 An unofficial API wrapper for Tidal Music. Tidal does not provide a documented public API so all endpoints have been found using Chrome Dev Network Tools. All methods return promises and are "thenable".
