@@ -246,8 +246,9 @@ get artist albums by artist id
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
 
-**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see [tidal.getAlbum](#Tidal+getAlbum) to see album object example)
-
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of \
+  album objects (see tidal.getAlbum to see album object example)
+  
 **Throws**:
 
 - <code>Error</code>
@@ -260,14 +261,6 @@ get artist albums by artist id
 **Example**
 ```js
 tidal.getArtistAlbums(3575680)
-// returns a promise that resolves to:
-  {
-    "id": 3575680,
-    "name": "Four Year Strong",
-    "url": "http://www.tidal.com/artist/3575680",
-    "picture": "04d63cd8-a1a5-42e0-b1ec-8e336b7d9200",
-    "popularity": 28
-  }
 ```
 <a name="Tidal+getArtistEPsAndSingles"></a>
 
