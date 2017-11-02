@@ -7,8 +7,8 @@
     "build": "babel -d lib/ src/",
     "start": "babel-node src/",
     "pretest": "npm run build",
-    "test": "mocha --timeout 5000 --require babel-core/register --require babel-polyfill ./test/**/*.js",
-    "test:cover": "babel-node ./node_modules/.bin/babel-istanbul cover _mocha -- --timeout 5000"
+    "test": "npm run build && mocha --timeout 5000 --require babel-core/register --require babel-polyfill ./test/**/*.js",
+    "test:cover": "npm run build && babel-node ./node_modules/.bin/babel-istanbul cover _mocha -- --timeout 5000"
   },
   "repository": {
     "type": "git",

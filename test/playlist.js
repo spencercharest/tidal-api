@@ -17,4 +17,18 @@ describe('playlist', () => {
 
   });
 
+  describe('getPlaylistTracks', () => {
+
+    it('should return an array of track objects from the specified playlist', async () => {
+      const tracks = await tidal.getPlaylistTracks('1c5d01ed-4f05-40c4-bd28-0f73099e9648');
+      const track = tracks[0];
+
+      expect(tracks).to.be.an('array');
+
+      expect(track).to.be.an('object')
+        .and.to.have.property('trackNumber');
+    });
+
+  });
+
 });

@@ -26,6 +26,7 @@ class Tidal {
   * @param {number} [limit] - search limit
   */
   async search(query, type, limit = 25) {
+
     const accTypes = ['artists', 'albums', 'tracks', 'playlists'];
 
     if (!type) {
@@ -192,41 +193,19 @@ class Tidal {
     }
   }
 
-  // TODO: getPlaylistTracks
-
   /**
-  * login with username and password
-  * @param {string} username - tidal login username or email
-  * @param {string} password - tidal login password
+  * get a playlist by its uuid
+  * @param {string} uuid - playlist uuid
   */
-  async login(username, password) {
-
-    // make sure username and password are valid
-    if (!username || !password) {
-      throw new Error('username and password are required arguments');
-    }
+  async getPlaylistTracks(uuid) {
 
     try {
-      // create the query string for params
-      const params = qs.stringify({
-        username,
-        password,
-        token: this.webToken,
-      });
-
       const res = await this.api({
-        method: 'POST',
-        url: `/login/username?token=${this.webToken}`,
-        data: params,
+        method: 'GET',
+        url: `/playlists/${uuid}/tracks?${this.params}`,
       });
 
-      // store this info for use in other methods
-      this.userId = res.data.userId;
-      this.sessionId = res.data.sessionId;
-      this.countryCode = res.data.countryCode;
-      this.params = `${this.params}&sessionId=${res.data.sessionId}`;
-
-      return res.data;
+      return res.data.items;
     } catch (e) {
       throw e;
     }
