@@ -1,16 +1,16 @@
 [![Build Status](https://travis-ci.org/spencercharest/tidal-api.svg?branch=master)](https://travis-ci.org/spencercharest/tidal-api)
 [![Coverage Status](https://coveralls.io/repos/github/spencercharest/tidal-api/badge.svg?branch=master)](https://coveralls.io/github/spencercharest/tidal-api?branch=master)
 
-# tidal-api
+# tidal-api-wrapper
 
 An unofficial API wrapper for Tidal Music. Tidal does not provide a documented public API so all endpoints have been found using Chrome Dev Network Tools. All methods return promises and are "thenable".
 
 ## Usage
 
-Import tidal-api and instantiate it.
+Import tidal-api-wrapper and instantiate it.
 
 ```js
-var Tidal = require('tidal-api');
+var Tidal = require('tidal-api-wrapper');
 
 var tidal = new Tidal();
 ```
@@ -376,7 +376,7 @@ tidal.getPlaylistTracks('1c5d01ed-4f05-40c4-bd28-0f73099e9648')
 #### Using ES2015
 
 ```js
-import Tidal from 'tidal-api';
+import Tidal from 'tidal-api-wrapper';
 const tidal = new Tidal();
 
 // search for an artist and then get their albums
@@ -408,6 +408,9 @@ tidal.search('Four Year Strong', 'artists', 1)
 #### Using ES7 async/await
 
 ```js
+import Tidal from 'tidal-api-wrapper';
+const tidal = new Tidal();
+
 // search for an artist and then get their albums
 (async function() {
   try {
