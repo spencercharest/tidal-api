@@ -351,7 +351,7 @@ tidal.getPlaylist('1c5d01ed-4f05-40c4-bd28-0f73099e9648')
 <a name="Tidal+getPlaylistTracks"></a>
 
 ### tidal.getPlaylistTracks(uuid) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
-get a playlist by its uuid
+get playlist tracks by playlist uuid
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
 

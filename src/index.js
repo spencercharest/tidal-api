@@ -348,7 +348,7 @@ class Tidal {
   }
 
   /**
-  * get a playlist by its uuid
+  * get playlist tracks by playlist uuid
   * @param {string} uuid - playlist uuid
   * @example tidal.getPlaylistTracks('1c5d01ed-4f05-40c4-bd28-0f73099e9648')
   * @returns {Promise<Object[]>} a promise that resolves to an array of \
