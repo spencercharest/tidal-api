@@ -239,14 +239,6 @@ class Tidal {
   * get artist albums by artist id
   * @param {number} id - artist id
   * @example tidal.getArtistAlbums(3575680)
-  * // returns a promise that resolves to:
-  {
-    "id": 3575680,
-    "name": "Four Year Strong",
-    "url": "http://www.tidal.com/artist/3575680",
-    "picture": "04d63cd8-a1a5-42e0-b1ec-8e336b7d9200",
-    "popularity": 28
-  }
   * @returns {Promise<Object[]>} a promise that resolves to an array of \
   album objects (see tidal.getAlbum to see album object example)
   * @throws {Error}
