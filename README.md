@@ -3,7 +3,7 @@
 
 # tidal-api-wrapper
 
-An unofficial API wrapper for Tidal Music. Tidal does not provide a documented public API so all endpoints have been found using Chrome Dev Network Tools. All methods return promises and are "thenable".
+An unofficial API wrapper for Tidal Music. Tidal does not provide a documented public API so all endpoints have been found using Chrome Dev Network Tools. All methods return promises and are "thenable" (with the exception of artistPicToUrl and albumArtToUrl).
 
 ## Usage
 
@@ -33,6 +33,8 @@ Class
     * [.getArtistCompilations(id)](#Tidal+getArtistCompilations) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
     * [.getPlaylist(uuid)](#Tidal+getPlaylist) ⇒ <code>Promise.&lt;Object&gt;</code>
     * [.getPlaylistTracks(uuid)](#Tidal+getPlaylistTracks) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+    * [.artistPicToUrl(uuid)](#Tidal+artistPicToUrl) ⇒ <code>Object</code>
+    * [.albumArtToUrl(uuid)](#Tidal+albumArtToUrl) ⇒ <code>Object</code>
 
 <a name="Tidal+search"></a>
 
@@ -369,6 +371,50 @@ get playlist tracks by playlist uuid
 **Example**
 ```js
 tidal.getPlaylistTracks('1c5d01ed-4f05-40c4-bd28-0f73099e9648')
+```
+
+<a name="Tidal+artistPicToUrl"></a>
+
+### tidal.artistPicToUrl(uuid) ⇒ <code>Object</code>
+get valid urls to artist pictures
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuid | <code>string</code> | artist picture uuid (can be found as picture property in artist object) |
+
+**Example**
+```js
+tidal.artistPicToUrl('04d63cd8-a1a5-42e0-b1ec-8e336b7d9200')
+// returns
+  {
+    sm: 'https://resources.tidal.com/images/04d63cd8/a1a5/42e0/b1ec/8e336b7d9200/160x107.jpg',
+    md: 'https://resources.tidal.com/images/04d63cd8/a1a5/42e0/b1ec/8e336b7d9200/320x214.jpg',
+    lg: 'https://resources.tidal.com/images/04d63cd8/a1a5/42e0/b1ec/8e336b7d9200/640x428.jpg'
+  }
+```
+<a name="Tidal+albumArtToUrl"></a>
+
+### tidal.albumArtToUrl(uuid) ⇒ <code>Object</code>
+get valid urls to album art
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)
+
+| Param | Type | Description |
+| --- | --- | --- |
+| uuid | <code>string</code> | album art uuid (can be found as cover property in album object) |
+
+**Example**
+```js
+tidal.albumArtToUrl('9a56f482-e9cf-46c3-bb21-82710e7854d4')
+// returns
+  {
+    sm: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/160x160.jpg',
+    md: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/320x320.jpg',
+    lg: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/640x640.jpg',
+    xl: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/1280x1280.jpg'
+  }
 ```
 
 ## More Advanced Examples

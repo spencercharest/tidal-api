@@ -368,6 +368,50 @@ class Tidal {
     }
   }
 
+  /**
+  * get valid urls to artist pictures
+  * @param {string} uuid - artist picture uuid (can be found as picture property in artist object)
+  * @example tidal.artistPicToUrl('04d63cd8-a1a5-42e0-b1ec-8e336b7d9200')
+  * // returns
+  {
+    sm: 'https://resources.tidal.com/images/04d63cd8/a1a5/42e0/b1ec/8e336b7d9200/160x107.jpg',
+    md: 'https://resources.tidal.com/images/04d63cd8/a1a5/42e0/b1ec/8e336b7d9200/320x214.jpg',
+    lg: 'https://resources.tidal.com/images/04d63cd8/a1a5/42e0/b1ec/8e336b7d9200/640x428.jpg'
+  }
+  * @returns {Object}
+  */
+  artistPicToUrl(uuid) {
+    const baseUrl = `https://resources.tidal.com/images/${uuid.replace(/-/g, '/')}`;
+    return {
+      sm: `${baseUrl}/160x107.jpg`,
+      md: `${baseUrl}/320x214.jpg`,
+      lg: `${baseUrl}/640x428.jpg`,
+    };
+  }
+
+  /**
+  * get valid urls to album art
+  * @param {string} uuid - album art uuid (can be found as cover property in album object)
+  * @example tidal.albumArtToUrl('9a56f482-e9cf-46c3-bb21-82710e7854d4')
+  * // returns
+  {
+    sm: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/160x160.jpg',
+    md: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/320x320.jpg',
+    lg: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/640x640.jpg',
+    xl: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/1280x1280.jpg'
+  }
+  * @returns {Object}
+  */
+  albumArtToUrl(uuid) {
+    const baseUrl = `https://resources.tidal.com/images/${uuid.replace(/'-'/g, '/')}`;
+    return {
+      sm: `${baseUrl}/160x160.jpg`,
+      md: `${baseUrl}/320x320.jpg`,
+      lg: `${baseUrl}/640x640.jpg`,
+      xl: `${baseUrl}/1280x1280.jpg`,
+    };
+  }
+
 }
 
 export default Tidal;
