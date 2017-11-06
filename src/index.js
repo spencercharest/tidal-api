@@ -403,7 +403,7 @@ class Tidal {
   * @returns {Object}
   */
   albumArtToUrl(uuid) {
-    const baseUrl = `https://resources.tidal.com/images/${uuid.replace(/'-'/g, '/')}`;
+    const baseUrl = `https://resources.tidal.com/images/${uuid.replace(/-/g, '/')}`;
     return {
       sm: `${baseUrl}/160x160.jpg`,
       md: `${baseUrl}/320x320.jpg`,

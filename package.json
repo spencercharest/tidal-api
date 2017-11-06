@@ -1,6 +1,6 @@
 {
   "name": "tidal-api-wrapper",
-  "version": "1.0.2",
+  "version": "1.1.1",
   "description": "An unofficial API wrapper for Tidal Music",
   "main": "lib/index.js",
   "scripts": {
