@@ -31,6 +31,7 @@ Class
     * [.getArtistAlbums(id)](#Tidal+getArtistAlbums) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
     * [.getArtistEPsAndSingles(id)](#Tidal+getArtistEPsAndSingles) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
     * [.getArtistCompilations(id)](#Tidal+getArtistCompilations) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+    * [.getArtistTopTracks(id, [limit])](#Tidal+getArtistTopTracks) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
     * [.getPlaylist(uuid)](#Tidal+getPlaylist) ⇒ <code>Promise.&lt;Object&gt;</code>
     * [.getPlaylistTracks(uuid)](#Tidal+getPlaylistTracks) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
     * [.artistPicToUrl(uuid)](#Tidal+artistPicToUrl) ⇒ <code>Object</code>
