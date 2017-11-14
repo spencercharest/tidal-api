@@ -301,6 +301,29 @@ class Tidal {
   }
 
   /**
+  * get top tracks by artist
+  * @param {number} id - artist id
+  * @param {number} [limit] - results limit
+  * @example tidal.getArtistTopTracks(3575680)
+  * @returns {Promise<Object[]>} a promise that resolves to an array of \
+  track objects (see tidal.getTrack to see track object example)
+  * @throws {Error}
+  */
+  async getArtistTopTracks(id, limit = 10) {
+
+    try {
+      const res = await this.api({
+        method: 'GET',
+        url: `/artists/${id}/toptracks?limit=${limit}&countryCode=${this.countryCode}`,
+      });
+
+      return res.data.items;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
   * get a playlist by its uuid
   * @param {string} uuid - playlist uuid
   * @example tidal.getPlaylist('1c5d01ed-4f05-40c4-bd28-0f73099e9648')

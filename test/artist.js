@@ -56,4 +56,25 @@ describe('artist', () => {
     });
   });
 
+  describe('getArtistTopTracks', () => {
+
+    it('should return an array of 10 track objects', async () => {
+      const tracks = await tidal.getArtistTopTracks(3575680);
+
+      expect(tracks).to.be.an('array')
+        .and.to.have.lengthOf(10);
+
+      expect(tracks[0]).to.be.an('object')
+        .and.to.have.property('trackNumber');
+
+    });
+
+    it('should return an array of 25 track objects', async () => {
+      const tracks = await tidal.getArtistTopTracks(3575680, 25);
+
+      expect(tracks).to.be.an('array')
+        .and.to.have.lengthOf(25);
+    });
+  });
+
 });

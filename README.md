@@ -326,6 +326,31 @@ get a playlist by its uuid
 | --- | --- | --- |
 | uuid | <code>string</code> | playlist uuid |
 
+<a name="Tidal+getArtistTopTracks"></a>
+
+### tidal.getArtistTopTracks(id, [limit]) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+get top tracks by artist
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)
+
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of
+  track objects (see [tidal.getTrack](#Tidal+getTrack) to see track object example)
+
+**Throws**:
+
+- <code>Error</code>
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| id | <code>number</code> |  | artist id |
+| [limit] | <code>number</code> | <code>10</code> | results limit |
+
+**Example**
+```js
+tidal.getArtistTopTracks(3575680)
+```
+
 **Example**
 ```js
 tidal.getPlaylist('1c5d01ed-4f05-40c4-bd28-0f73099e9648')
@@ -410,10 +435,10 @@ get valid urls to album art
 tidal.albumArtToUrl('9a56f482-e9cf-46c3-bb21-82710e7854d4')
 // returns
   {
-    sm: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/160x160.jpg',
-    md: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/320x320.jpg',
-    lg: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/640x640.jpg',
-    xl: 'https://resources.tidal.com/images/9a56f482-e9cf-46c3-bb21-82710e7854d4/1280x1280.jpg'
+    sm: 'https://resources.tidal.com/images/9a56f482/e9cf/46c3/bb21/82710e7854d4/160x160.jpg',
+    md: 'https://resources.tidal.com/images/9a56f482/e9cf/46c3/bb21/82710e7854d4/320x320.jpg',
+    lg: 'https://resources.tidal.com/images/9a56f482/e9cf/46c3/bb21/82710e7854d4/640x640.jpg',
+    xl: 'https://resources.tidal.com/images/9a56f482/e9cf/46c3/bb21/82710e7854d4/1280x1280.jpg'
   }
 ```
 
