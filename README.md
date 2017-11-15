@@ -46,9 +46,7 @@ search for artists, albums, tracks, or playlists
 
 **Returns**: <code>Promise.&lt;{Array.&lt;Object&gt;}&gt;</code> - promise that resolves to an array of objects (object properties are dependent on search type)
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Default | Description |
@@ -80,9 +78,7 @@ get a track by its id
 
 **Returns**: <code>Promise.&lt;Object&gt;</code> - a promise that resolves to a track object
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Description |
@@ -141,9 +137,7 @@ get an album by its id
 
 **Returns**: <code>Promise.&lt;Object&gt;</code> - a promise that resolves to an album object
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Description |
@@ -199,9 +193,7 @@ get album tracks by album id
 
 **Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of track objects (see [tidal.getTrack](#Tidal+getTrack) to see track object example)
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Description |
@@ -221,9 +213,7 @@ get an artist by its id
 
 **Returns**: <code>Promise.&lt;Object&gt;</code> - a promise that resolves to an artist object
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Description |
@@ -252,9 +242,7 @@ get artist albums by artist id
 **Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of \
   album objects (see [tidal.getAlbum](#Tidal+getAlbum) to see album object example)
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Description |
@@ -274,9 +262,7 @@ get artist EPs and singles by artist id
 
 **Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see [tidal.getAlbum](#Tidal+getAlbum) to see album object example)
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Description |
@@ -296,9 +282,7 @@ get compliations that artist has appeared on by artist id
 
 **Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see [tidal.getAlbum](#Tidal+getAlbum) to see album object example)
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Description |
@@ -318,9 +302,7 @@ get a playlist by its uuid
 
 **Returns**: <code>Promise.&lt;Object&gt;</code> - a promise that resolves to a playlist object
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Description |
@@ -337,9 +319,7 @@ get top tracks by artist
 **Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of
   track objects (see [tidal.getTrack](#Tidal+getTrack) to see track object example)
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Default | Description |
@@ -385,9 +365,7 @@ get playlist tracks by playlist uuid
 
 **Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of track objects (see [tidal.getTrack](#Tidal+getTrack) to see track object example)
 
-**Throws**:
-
-- <code>Error</code>
+**Throws**: <code>Error</code>
 
 
 | Param | Type | Description |
