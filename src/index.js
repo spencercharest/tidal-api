@@ -237,7 +237,7 @@ class Tidal {
   * get top 20 albums on Tidal
   * @example tidal.getTopAlbums()
   * @returns {Promise<Object[]>} a promise that resolves to an array of album \
-  objects (see tidal.getAlbum to see track object example)
+  objects (see tidal.getAlbum to see album object example)
   * @throws {Error}
   */
   async getTopAlbums() {
@@ -257,7 +257,7 @@ class Tidal {
   * get new albums on Tidal
   * @example tidal.getNewAlbums()
   * @returns {Promise<Object[]>} a promise that resolves to an array of album \
-  objects (see tidal.getAlbum to see track object example)
+  objects (see tidal.getAlbum to see album object example)
   * @throws {Error}
   */
   async getNewAlbums() {
@@ -277,7 +277,7 @@ class Tidal {
   * get staff pick albums on Tidal
   * @example tidal.getStaffPickAlbums()
   * @returns {Promise<Object[]>} a promise that resolves to an array of album \
-  objects (see tidal.getAlbum to see track object example)
+  objects (see tidal.getAlbum to see album object example)
   * @throws {Error}
   */
   async getStaffPickAlbums() {
