@@ -214,6 +214,7 @@ tidal.getAlbumTracks(80216363)
 get top 20 albums on Tidal
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
+
 **Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see tidal.getAlbum to see track object example)
 
 **Throws**: <code>Error</code>
@@ -228,6 +229,7 @@ tidal.getTopAlbums()
 get new albums on Tidal
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
+
 **Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see tidal.getAlbum to see track object example)
 
 **Throws**: <code>Error</code>
@@ -242,6 +244,7 @@ tidal.getNewAlbums()
 get staff pick albums on Tidal
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)
+
 **Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see tidal.getAlbum to see track object example)
 
 **Throws**: <code>Error</code>
