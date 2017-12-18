@@ -27,6 +27,9 @@ Class
     * [.getTrack(id)](#Tidal+getTrack) ⇒ <code>Promise.&lt;Object&gt;</code>
     * [.getAlbum(id)](#Tidal+getAlbum) ⇒ <code>Promise.&lt;Object&gt;</code>
     * [.getAlbumTracks(id)](#Tidal+getAlbumTracks) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+    * [.getTopAlbums()](#Tidal+getTopAlbums) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+    * [.getNewAlbums()](#Tidal+getNewAlbums) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+    * [.getStaffPickAlbums()](#Tidal+getStaffPickAlbums) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
     * [.getArtist(id)](#Tidal+getArtist) ⇒ <code>Promise.&lt;Object&gt;</code>
     * [.getArtistAlbums(id)](#Tidal+getArtistAlbums) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
     * [.getArtistEPsAndSingles(id)](#Tidal+getArtistEPsAndSingles) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
@@ -204,6 +207,50 @@ get album tracks by album id
 ```js
 tidal.getAlbumTracks(80216363)
 ```
+
+<a name="Tidal+getTopAlbums"></a>
+
+### tidal.getTopAlbums() ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+get top 20 albums on Tidal
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see tidal.getAlbum to see track object example)
+
+**Throws**: <code>Error</code>
+
+**Example**
+```js
+tidal.getTopAlbums()
+```
+<a name="Tidal+getNewAlbums"></a>
+
+### tidal.getNewAlbums() ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+get new albums on Tidal
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see tidal.getAlbum to see track object example)
+
+**Throws**: <code>Error</code>
+
+**Example**
+```js
+tidal.getNewAlbums()
+```
+<a name="Tidal+getStaffPickAlbums"></a>
+
+### tidal.getStaffPickAlbums() ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+get staff pick albums on Tidal
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of album objects (see tidal.getAlbum to see track object example)
+
+**Throws**: <code>Error</code>
+
+**Example**
+```js
+tidal.getStaffPickAlbums()
+```
+
 <a name="Tidal+getArtist"></a>
 
 ### tidal.getArtist(id) ⇒ <code>Promise.&lt;Object&gt;</code>
@@ -309,29 +356,6 @@ get a playlist by its uuid
 | --- | --- | --- |
 | uuid | <code>string</code> | playlist uuid |
 
-<a name="Tidal+getArtistTopTracks"></a>
-
-### tidal.getArtistTopTracks(id, [limit]) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
-get top tracks by artist
-
-**Kind**: instance method of [<code>Tidal</code>](#Tidal)
-
-**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of
-  track objects (see [tidal.getTrack](#Tidal+getTrack) to see track object example)
-
-**Throws**: <code>Error</code>
-
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| id | <code>number</code> |  | artist id |
-| [limit] | <code>number</code> | <code>10</code> | results limit |
-
-**Example**
-```js
-tidal.getArtistTopTracks(3575680)
-```
-
 **Example**
 ```js
 tidal.getPlaylist('1c5d01ed-4f05-40c4-bd28-0f73099e9648')
@@ -356,6 +380,30 @@ tidal.getPlaylist('1c5d01ed-4f05-40c4-bd28-0f73099e9648')
   }
 
 ```
+
+<a name="Tidal+getArtistTopTracks"></a>
+
+### tidal.getArtistTopTracks(id, [limit]) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>
+get top tracks by artist
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)
+
+**Returns**: <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code> - a promise that resolves to an array of
+  track objects (see [tidal.getTrack](#Tidal+getTrack) to see track object example)
+
+**Throws**: <code>Error</code>
+
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| id | <code>number</code> |  | artist id |
+| [limit] | <code>number</code> | <code>10</code> | results limit |
+
+**Example**
+```js
+tidal.getArtistTopTracks(3575680)
+```
+
 <a name="Tidal+getPlaylistTracks"></a>
 
 ### tidal.getPlaylistTracks(uuid) ⇒ <code>Promise.&lt;Array.&lt;Object&gt;&gt;</code>

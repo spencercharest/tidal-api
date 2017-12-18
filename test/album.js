@@ -30,4 +30,40 @@ describe('album', () => {
 
   });
 
+  describe('getTopAlbums', () => {
+
+    it('should return an array with 20 album objects', async () => {
+
+      const albums = await tidal.getTopAlbums();
+      expect(albums).to.be.an('array')
+        .and.to.have.lengthOf(20);
+
+      expect(albums[0]).to.have.property('numberOfTracks');
+    });
+  });
+
+  describe('getNewAlbums', () => {
+
+    it('should return an array of album objects', async () => {
+
+      const albums = await tidal.getNewAlbums();
+
+      expect(albums).to.be.an('array');
+
+      expect(albums[0]).to.have.property('numberOfTracks');
+    });
+  });
+
+  describe('getStaffPickAlbums', () => {
+
+    it('should return an array of album objects', async () => {
+
+      const albums = await tidal.getStaffPickAlbums();
+
+      expect(albums).to.be.an('array');
+
+      expect(albums[0]).to.have.property('numberOfTracks');
+    });
+  });
+
 });

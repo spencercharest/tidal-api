@@ -15,6 +15,8 @@ class Tidal {
     });
     // some base params for GET requests
     this.params = `limit=999&countryCode=${this.countryCode}`;
+    // params for Tidal pages that require a locale and device type
+    this.localeParams = 'locale=en_US&deviceType=BROWSER&countryCode=US';
   }
 
   /**
@@ -200,6 +202,92 @@ class Tidal {
       });
 
       return res.data.items;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  async getFeaturedAlbums() {
+
+    try {
+
+      const res = await this.api({
+        method: 'GET',
+        url: `/pages/show_more_featured_albums?${this.localeParams}`,
+      });
+
+      const { tabs } = res.data.rows[0].modules[0];
+
+      const topAlbums = tabs.find(tab => tab.key === 'featured-top');
+      const newAlbums = tabs.find(tab => tab.key === 'featured-new');
+      const staffPicks = tabs.find(tab => tab.key === 'featured-recommended');
+
+      return {
+        topAlbums: topAlbums.pagedList.items,
+        newAlbums: newAlbums.pagedList.items,
+        staffPicks: staffPicks.pagedList.items,
+      };
+
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * get top 20 albums on Tidal
+  * @example tidal.getTopAlbums()
+  * @returns {Promise<Object[]>} a promise that resolves to an array of album \
+  objects (see tidal.getAlbum to see track object example)
+  * @throws {Error}
+  */
+  async getTopAlbums() {
+
+    try {
+
+      const featuredAlbums = await this.getFeaturedAlbums();
+
+      return featuredAlbums.topAlbums;
+
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * get new albums on Tidal
+  * @example tidal.getNewAlbums()
+  * @returns {Promise<Object[]>} a promise that resolves to an array of album \
+  objects (see tidal.getAlbum to see track object example)
+  * @throws {Error}
+  */
+  async getNewAlbums() {
+
+    try {
+
+      const featuredAlbums = await this.getFeaturedAlbums();
+
+      return featuredAlbums.newAlbums;
+
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * get staff pick albums on Tidal
+  * @example tidal.getStaffPickAlbums()
+  * @returns {Promise<Object[]>} a promise that resolves to an array of album \
+  objects (see tidal.getAlbum to see track object example)
+  * @throws {Error}
+  */
+  async getStaffPickAlbums() {
+
+    try {
+
+      const featuredAlbums = await this.getFeaturedAlbums();
+
+      return featuredAlbums.staffPicks;
+
     } catch (e) {
       throw e;
     }
