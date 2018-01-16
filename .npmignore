@@ -2,6 +2,7 @@ src/
 out/
 coverage/
 test/
+docs/
 .eslintrc
 .babelrc
 .gitignore
