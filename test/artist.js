@@ -77,4 +77,21 @@ describe('artist', () => {
     });
   });
 
+  describe('getSimilarArtists', () => {
+
+    it('should return an array of artist objects', async () => {
+
+      const similar = await tidal.getSimilarArtists(3575680);
+      const artist = similar[0];
+
+      expect(similar).to.be.an('array')
+        .and.to.have.length.above(0);
+
+      expect(artist).to.be.an('object')
+        .and.to.have.property('id');
+
+    });
+
+  });
+
 });

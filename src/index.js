@@ -36,9 +36,9 @@ class Tidal {
             "popularity": 28
         }
     ]
-  * @returns {Promise<{Object[]}>} promise that resolves to an array of  \
-  objects (object properties are dependent on search type)
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Array} - an array of objects (object properties are dependent on search type)
+  * @reject {Error}
   */
   async search(query, type, limit = 25) {
 
@@ -108,8 +108,9 @@ class Tidal {
         "cover": "5ac41fbb-927b-427e-8224-87bf12d218a3"
     }
   }
-  * @returns {Promise<Object>} a promise that resolves to a track object
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Object} - a track object (see example for object properties)
+  * @reject {Error}
   */
   async getTrack(id) {
 
@@ -168,8 +169,9 @@ class Tidal {
         }
     ]
   }
-  * @returns {Promise<Object>} a promise that resolves to an album object
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Object} - an album object (see example for object properties)
+  * @reject {Error}
   */
   async getAlbum(id) {
 
@@ -189,9 +191,10 @@ class Tidal {
   * get album tracks by album id
   * @param {number} id - album id
   * @example tidal.getAlbumTracks(80216363)
-  * @returns {Promise<Object[]>} a promise that resolves to an array of track \
-  objects (see tidal.getTrack to see track object example)
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Array} - an array of track objects
+  * @reject {Error}
+  * @see {@link Tidal#getTrack} - track object example
   */
   async getAlbumTracks(id) {
 
@@ -207,6 +210,7 @@ class Tidal {
     }
   }
 
+  // this is an internal method and so won't be included in JSDOC
   async getFeaturedAlbums() {
 
     try {
@@ -236,9 +240,10 @@ class Tidal {
   /**
   * get top 20 albums on Tidal
   * @example tidal.getTopAlbums()
-  * @returns {Promise<Object[]>} a promise that resolves to an array of album \
-  objects (see tidal.getAlbum to see album object example)
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Array} - an array of album objects
+  * @reject {Error}
+  * @see {@link Tidal#getAlbum} - album object example
   */
   async getTopAlbums() {
 
@@ -256,9 +261,10 @@ class Tidal {
   /**
   * get new albums on Tidal
   * @example tidal.getNewAlbums()
-  * @returns {Promise<Object[]>} a promise that resolves to an array of album \
-  objects (see tidal.getAlbum to see album object example)
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Array} - an array of album objects
+  * @reject {Error}
+  * @see {@link Tidal#getAlbum} - album object example
   */
   async getNewAlbums() {
 
@@ -276,9 +282,10 @@ class Tidal {
   /**
   * get staff pick albums on Tidal
   * @example tidal.getStaffPickAlbums()
-  * @returns {Promise<Object[]>} a promise that resolves to an array of album \
-  objects (see tidal.getAlbum to see album object example)
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Array} - an array of album objects
+  * @reject {Error}
+  * @see {@link Tidal#getAlbum} - album object example
   */
   async getStaffPickAlbums() {
 
@@ -305,8 +312,9 @@ class Tidal {
     "picture": "04d63cd8-a1a5-42e0-b1ec-8e336b7d9200",
     "popularity": 28
   }
-  * @returns {Promise<Object>} a promise that resolves to an artist object
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Object} - an artist object (see example for object properties)
+  * @reject {Error}
   */
   async getArtist(id) {
 
@@ -326,9 +334,10 @@ class Tidal {
   * get artist albums by artist id
   * @param {number} id - artist id
   * @example tidal.getArtistAlbums(3575680)
-  * @returns {Promise<Object[]>} a promise that resolves to an array of \
-  album objects (see tidal.getAlbum to see album object example)
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Array} - an array of album objects
+  * @reject {Error}
+  * @see {@link Tidal#getAlbum} - album object example
   */
   async getArtistAlbums(id) {
 
@@ -348,9 +357,10 @@ class Tidal {
   * get artist EPs and singles by artist id
   * @param {number} id - artist id
   * @example tidal.getArtistEPsAndSingles(3575680)
-  * @returns {Promise<Object[]>} a promise that resolves to an array of \
-  album objects (see tidal.getAlbum to see album object example)
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Array} - an array of album objects
+  * @reject {Error}
+  * @see {@link Tidal#getAlbum} - album object example
   */
   async getArtistEPsAndSingles(id) {
 
@@ -370,9 +380,10 @@ class Tidal {
   * get compliations that artist has appeared on by artist id
   * @param {number} id - artist id
   * @example tidal.getArtistCompilations(3575680)
-  * @returns {Promise<Object[]>} a promise that resolves to an array of \
-  album objects (see tidal.getAlbum to see album object example)
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Array} - an array of album objects
+  * @reject {Error}
+  * @see {@link Tidal#getAlbum} - album object example
   */
   async getArtistCompilations(id) {
 
@@ -393,9 +404,10 @@ class Tidal {
   * @param {number} id - artist id
   * @param {number} [limit] - results limit
   * @example tidal.getArtistTopTracks(3575680)
-  * @returns {Promise<Object[]>} a promise that resolves to an array of \
-  track objects (see tidal.getTrack to see track object example)
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Array} - an array of track objects
+  * @reject {Error}
+  * @see {@link Tidal#getTrack} - track object example
   */
   async getArtistTopTracks(id, limit = 10) {
 
@@ -403,6 +415,29 @@ class Tidal {
       const res = await this.api({
         method: 'GET',
         url: `/artists/${id}/toptracks?limit=${limit}&countryCode=${this.countryCode}`,
+      });
+
+      return res.data.items;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * get similar artists
+  * @param {number} id - artist id
+  * @example tidal.getSimilarArtists(3575680)
+  * @returns {Promise}
+  * @fulfil {Object} - artist object
+  * @reject {Error}
+  * @see {@link Tidal#getArtist} - artist object example
+  */
+  async getSimilarArtists(id) {
+    try {
+
+      const res = await this.api({
+        method: 'GET',
+        url: `/artists/${id}/similar?${this.params}`,
       });
 
       return res.data.items;
@@ -440,8 +475,9 @@ class Tidal {
     "image": "7a707631-02cf-47d8-a34c-e1395165f169",
     "popularity": 0
   }
-  @returns {Promise<Object>} a promise that resolves to a playlist object
-  @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Object} - playlist object (see example for object properties)
+  * @reject {Error}
   */
   async getPlaylist(uuid) {
 
@@ -461,9 +497,10 @@ class Tidal {
   * get playlist tracks by playlist uuid
   * @param {string} uuid - playlist uuid
   * @example tidal.getPlaylistTracks('1c5d01ed-4f05-40c4-bd28-0f73099e9648')
-  * @returns {Promise<Object[]>} a promise that resolves to an array of \
-  track objects (see tidal.getTrack to see track object example)
-  * @throws {Error}
+  * @returns {Promise}
+  * @fulfil {Array} - an array of track objects
+  * @reject {Error}
+  * @see {@link Tidal#getTrack} - track object example
   */
   async getPlaylistTracks(uuid) {
 
