@@ -5,6 +5,10 @@
 
 An unofficial API wrapper for Tidal Music. Tidal does not provide a documented public API so all endpoints have been found using Chrome Dev Network Tools. All methods return promises and are "thenable" (with the exception of artistPicToUrl and albumArtToUrl).
 
+# Note
+
+Since this is an unofficial wrapper and the Tidal API is not public this wrapper could break at any time. Automated tests are performed daily on Travis and if any endpoints have changed or are not working the build will be marked as failing.
+
 ## Usage
 
 Import tidal-api-wrapper and instantiate it.
