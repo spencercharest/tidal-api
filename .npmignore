@@ -7,3 +7,4 @@ docs/
 .babelrc
 .gitignore
 .travis.yml
+.env

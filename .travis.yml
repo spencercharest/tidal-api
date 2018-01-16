@@ -1,10 +1,13 @@
 language: node_js
 node_js:
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-script: "npm run-script test:cover"
-# Send coverage data to Coveralls
-after_script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+- '4'
+- '5'
+- '6'
+- '7'
+- '8'
+script: npm run-script test:cover
+after_script: cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+env:
+  matrix:
+  - secure: Bn7B2OXyMP6JNu63iDCnge5NwuOD6IWZpMLXrg6qrNviPDqAPT4QjVs1CSMsOlj1uAfdhSnj8MIaqcvc5bV2hu9yj4CwJyEzaeFsLWiGPfzHBhw+sSfWOgajwOI0wezjTLEsALh7G+alD8IRKmPHEbKp7sp/LVOPUXehRu60Of5y05u37v6O1OnZO+waJ8N0Dqa8Yqd9ea8b6ZRgpSH2i36AOCvQIGRkB1hXvBGOrPqrWpiRQ8d5UvYvXIRHfO9hF5rYtFDj0OJUHh5ZTT6C7P/zMINjFGa51ZxySYqghHGUtASdzs01PdToK5Bx9UFrcfNCRTegBo6oLIbBghqhTPnzIUIemVNwzmek4QZ84hX1XYDQ9GqtIUb692EfZaqVtAwcnxKcbOBedsg2XP9HYccgAFgrNNjH3lqAue+mYHY/RDeAZ7xcsA4NrqAy65skunnL6lM01htrR6hV4Nc9bc7IfaeR0GG0ZMCKgPKnCzg43526G2QT0Q2WvM0owETgZFJbikTL2UafVkmhVL8EbUN2ZG8JZdLbg+Kg/+O6SqLHLELrsKrokrzJ8B6B1JGG3kx0zmrdx7CFdQxBCvY4nPJ8NRndU+Pvf+zjOZjug46NXEwajm7AGjqm05BF8+kLn/N5wfmqOSsRg93Zl1tn4bE3P9CtZA9YKidHVrosXRo=
+  - secure: SMSmKt8XTFWUd7K/0XxHz/0Pij6ZJG0E+flnIvjWacR8xAK39Cd+F1UxoyX0LSUr1QcGqbWVn+goaHed7Ve/47nEvQsYbuhdN+TOBegzSJolkdQLwPG+PEMza9MrcYTFmGvs5vj8uuxrqZqqdTsO6t6QUQwETly1orynPHziu06qIQIOSIslXBQ4AKPhvsd9Ev4G5fwdNjejgBjoTX6yEWcrGO0epQWPKh3LWWpzCP0Jjs4DPC9Wug1SqyPNSrDdAFVq5tv+3VK8fQi11mZoatB9I7TzekxoPSQQNsb2mMYazD26kTFdk4l68BJ++e20QwR92n4dLHdVlX9GjHR/j/Fx+E/3SK0mTyRlyyXMg81fQVOEoNFh4/ILLxXa3wOGuTFy7gnb7MmB0By3cqNh5dWMTEDh8xKY7J++k61anCSXICP4fHnfWOsLVbNhYO2ySGw3HbRPS+GYWz+dBd7VAtM0uT/gdqq9ucqvqOzpbzaVRRSCRKLt96ngshOGNFFC4E6BBeyvt2My0H6J1uqyWTE+UhpzcDm/UtUikGN4R2o/BQNzl+FRP4q2bHkDBVVvKtn3AO5E0chR0TnBCK+hbU+aeEzmM6p5FX7Q4L5ktrf873QA3qffRhUNWgGqp0pXCyI5+0ZETE+hJQKRmCzbX8QbmetkCG9JkVnhYHW512k=

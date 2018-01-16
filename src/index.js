@@ -1,4 +1,5 @@
 import axios from 'axios';
+import qs from 'querystring';
 
 /** Class */
 class Tidal {
@@ -17,6 +18,50 @@ class Tidal {
     this.params = `limit=999&countryCode=${this.countryCode}`;
     // params for Tidal pages that require a locale and device type
     this.localeParams = 'locale=en_US&deviceType=BROWSER&countryCode=US';
+  }
+
+  /**
+  * login to Tidal in order to use methods that require authentication
+  * @param {string} username - Tidal username or email
+  * @param {string} password - Tidal password
+  * @example tidal.login('username', 'password')
+  * // returns a promise that resolves to
+  {
+    userId: 49927020,
+    sessionId: '24d3d406-e6b9-457a-bf57-eac7b113a20c',
+    countryCode: 'US'
+  }
+  * @returns {Promise}
+  * @fulfil {Object} - user data object (see example for object properties)
+  * @reject {Error}
+  */
+  async login(username, password) {
+
+    if (!username || !password) {
+      throw new Error('Username and password are required arguments of login()');
+    }
+
+    try {
+      const params = qs.stringify({
+        username,
+        password,
+      });
+
+      const res = await this.api({
+        method: 'POST',
+        url: `/login/username?token=${this.webToken}`,
+        data: params,
+      });
+
+      // store this info for use in other methods
+      this.userId = res.data.userId;
+      this.sessionId = res.data.sessionId;
+      this.params = `${this.params}&sessionId=${res.data.sessionId}`;
+
+      return res.data;
+    } catch (e) {
+      throw e;
+    }
   }
 
   /**

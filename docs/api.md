@@ -6,6 +6,7 @@ Class
 **Kind**: global class  
 
 * [Tidal](#Tidal)
+    * [.login(username, password)](#Tidal+login) ⇒ <code>Promise</code>
     * [.search(query, type, [limit])](#Tidal+search) ⇒ <code>Promise</code>
     * [.getTrack(id)](#Tidal+getTrack) ⇒ <code>Promise</code>
     * [.getAlbum(id)](#Tidal+getAlbum) ⇒ <code>Promise</code>
@@ -24,6 +25,30 @@ Class
     * [.artistPicToUrl(uuid)](#Tidal+artistPicToUrl) ⇒ <code>Object</code>
     * [.albumArtToUrl(uuid)](#Tidal+albumArtToUrl) ⇒ <code>Object</code>
 
+<a name="Tidal+login"></a>
+
+### tidal.login(username, password) ⇒ <code>Promise</code>
+login to Tidal in order to use methods that require authentication
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)  
+**Fulfil**: <code>Object</code> - user data object (see example for object properties)  
+**Reject**: <code>Error</code>  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| username | <code>string</code> | Tidal username or email |
+| password | <code>string</code> | Tidal password |
+
+**Example**  
+```js
+tidal.login('username', 'password')
+// returns a promise that resolves to
+  {
+    userId: 49927020,
+    sessionId: '24d3d406-e6b9-457a-bf57-eac7b113a20c',
+    countryCode: 'US'
+  }
+```
 <a name="Tidal+search"></a>
 
 ### tidal.search(query, type, [limit]) ⇒ <code>Promise</code>
