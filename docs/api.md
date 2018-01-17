@@ -14,6 +14,7 @@ Class
     * [.getTopAlbums()](#Tidal+getTopAlbums) ⇒ <code>Promise</code>
     * [.getNewAlbums()](#Tidal+getNewAlbums) ⇒ <code>Promise</code>
     * [.getStaffPickAlbums()](#Tidal+getStaffPickAlbums) ⇒ <code>Promise</code>
+    * [.getFavoriteAlbums()](#Tidal+getFavoriteAlbums) ⇒ <code>Promise</code>
     * [.getArtist(id)](#Tidal+getArtist) ⇒ <code>Promise</code>
     * [.getArtistAlbums(id)](#Tidal+getArtistAlbums) ⇒ <code>Promise</code>
     * [.getArtistEPsAndSingles(id)](#Tidal+getArtistEPsAndSingles) ⇒ <code>Promise</code>
@@ -246,6 +247,23 @@ get staff pick albums on Tidal
 **Example**  
 ```js
 tidal.getStaffPickAlbums()
+```
+<a name="Tidal+getFavoriteAlbums"></a>
+
+### tidal.getFavoriteAlbums() ⇒ <code>Promise</code>
+get your favorite (starred) albums
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)  
+**Fulfil**: <code>Array</code> - an array of album objects  
+**Reject**: <code>Error</code>  
+**See**
+
+- [getAlbum](#Tidal+getAlbum) - album object example
+- [login](#Tidal+login) - login method must be called first
+
+**Example**  
+```js
+tidal.getFavoriteAlbums()
 ```
 <a name="Tidal+getArtist"></a>
 

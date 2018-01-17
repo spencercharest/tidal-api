@@ -1,5 +1,8 @@
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
+import chaiAsPromised from 'chai-as-promised';
 import Tidal from '../src';
+
+chai.use(chaiAsPromised);
 
 const tidal = new Tidal();
 
@@ -39,7 +42,9 @@ describe('album', () => {
         .and.to.have.lengthOf(20);
 
       expect(albums[0]).to.have.property('numberOfTracks');
+
     });
+
   });
 
   describe('getNewAlbums', () => {
@@ -51,7 +56,9 @@ describe('album', () => {
       expect(albums).to.be.an('array');
 
       expect(albums[0]).to.have.property('numberOfTracks');
+
     });
+
   });
 
   describe('getStaffPickAlbums', () => {
@@ -63,7 +70,29 @@ describe('album', () => {
       expect(albums).to.be.an('array');
 
       expect(albums[0]).to.have.property('numberOfTracks');
+
     });
+
+  });
+
+  describe('getFavoriteAlbums', () => {
+
+    it('should reject if login() has not been called', () => expect(tidal.getFavoriteAlbums()).to.eventually.be.rejectedWith(Error));
+
+    it('should return an array of album object', async () => {
+
+      await tidal.login(process.env.USERNAME, process.env.PASSWORD);
+
+      const favorites = await tidal.getFavoriteAlbums();
+      const album = favorites[0];
+
+      expect(favorites).to.be.an('array');
+
+      expect(album).to.be.an('object')
+        .and.to.have.property('title');
+
+    });
+
   });
 
 });
