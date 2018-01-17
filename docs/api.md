@@ -251,15 +251,15 @@ tidal.getStaffPickAlbums()
 <a name="Tidal+getFavoriteAlbums"></a>
 
 ### tidal.getFavoriteAlbums() ⇒ <code>Promise</code>
-get your favorite (starred) albums
+get your favorite (starred) albums (requires login() to be called)
 
 **Kind**: instance method of [<code>Tidal</code>](#Tidal)  
 **Fulfil**: <code>Array</code> - an array of album objects  
 **Reject**: <code>Error</code>  
 **See**
 
-- [getAlbum](#Tidal+getAlbum) - album object example
 - [login](#Tidal+login) - login method must be called first
+- [getAlbum](#Tidal+getAlbum) - album object example
 
 **Example**  
 ```js
