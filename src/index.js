@@ -15,7 +15,7 @@ class Tidal {
       },
     });
     // some base params for GET requests
-    this.params = `limit=999&countryCode=${this.countryCode}`;
+    this.params = `limit=10000&countryCode=${this.countryCode}`;
     // params for Tidal pages that require a locale and device type
     this.localeParams = 'locale=en_US&deviceType=BROWSER&countryCode=US';
   }
@@ -652,6 +652,38 @@ class Tidal {
       });
 
       return res.data.items;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * get your favorite (starred) playlists (requires login() to be called)
+  * @example tidal.getFavoritePlaylists()
+  * @returns {Promise}
+  * @fulfil {Array} - an array of playlist objects
+  * @reject {Error}
+  * @see {@link Tidal#login} - login method must be called first
+  * @see {@link Tidal#getPlaylist} - playlist object example
+  */
+  async getFavoritePlaylists() {
+
+    if (!this.userId || !this.sessionId) {
+      throw new Error('You must call the login method first');
+    }
+
+    try {
+
+      const res = await this.api({
+        method: 'GET',
+        url: `/users/${this.userId}/favorites/playlists?${this.params}`,
+      });
+
+      const { items } = res.data;
+
+      const playlists = items.map(item => item.item);
+
+      return playlists;
     } catch (e) {
       throw e;
     }

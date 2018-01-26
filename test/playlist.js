@@ -1,5 +1,8 @@
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
+import chaiAsPromised from 'chai-as-promised';
 import Tidal from '../src';
+
+chai.use(chaiAsPromised);
 
 const tidal = new Tidal();
 
@@ -27,6 +30,24 @@ describe('playlist', () => {
 
       expect(track).to.be.an('object')
         .and.to.have.property('trackNumber');
+    });
+
+  });
+
+  describe('getFavoritePlaylists', () => {
+
+    it('should reject if login() has not been called', () => expect(tidal.getFavoritePlaylists()).to.eventually.be.rejectedWith(Error));
+
+    it('should return an array of playlist objects', async () => {
+
+      await tidal.login(process.env.USERNAME, process.env.PASSWORD);
+      const favorites = await tidal.getFavoritePlaylists();
+      const playlist = favorites[0];
+
+      expect(favorites).to.be.an('array');
+
+      expect(playlist).to.be.an('object')
+        .and.to.have.property('uuid');
     });
 
   });
