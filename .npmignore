@@ -8,3 +8,4 @@ docs/
 .gitignore
 .travis.yml
 .env
+docs.js

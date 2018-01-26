@@ -113,7 +113,3 @@ const tidal = new Tidal();
   }
 })();
 ```
-
-## Future Plans
-
-In the next major release I plan to implement authenticated methods such as login, getFavoriteArtists, getFavoriteAlbums, addToFavoriteArtists, etc. Stay tuned!
