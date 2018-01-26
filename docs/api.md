@@ -25,6 +25,7 @@ Class
     * [.getFavoriteArtists()](#Tidal+getFavoriteArtists) ⇒ <code>Promise</code>
     * [.getPlaylist(uuid)](#Tidal+getPlaylist) ⇒ <code>Promise</code>
     * [.getPlaylistTracks(uuid)](#Tidal+getPlaylistTracks) ⇒ <code>Promise</code>
+    * [.getFavoritePlaylists()](#Tidal+getFavoritePlaylists) ⇒ <code>Promise</code>
     * [.artistPicToUrl(uuid)](#Tidal+artistPicToUrl) ⇒ <code>Object</code>
     * [.albumArtToUrl(uuid)](#Tidal+albumArtToUrl) ⇒ <code>Object</code>
 
@@ -476,6 +477,23 @@ get playlist tracks by playlist uuid
 **Example**  
 ```js
 tidal.getPlaylistTracks('1c5d01ed-4f05-40c4-bd28-0f73099e9648')
+```
+<a name="Tidal+getFavoritePlaylists"></a>
+
+### tidal.getFavoritePlaylists() ⇒ <code>Promise</code>
+get your favorite (starred) playlists (requires login() to be called)
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)  
+**Fulfil**: <code>Array</code> - an array of playlist objects  
+**Reject**: <code>Error</code>  
+**See**
+
+- [login](#Tidal+login) - login method must be called first
+- [getPlaylist](#Tidal+getPlaylist) - playlist object example
+
+**Example**  
+```js
+tidal.getFavoritePlaylists()
 ```
 <a name="Tidal+artistPicToUrl"></a>
 
