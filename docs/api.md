@@ -16,12 +16,12 @@ Class
     * [.getStaffPickAlbums()](#Tidal+getStaffPickAlbums) ⇒ <code>Promise</code>
     * [.getFavoriteAlbums()](#Tidal+getFavoriteAlbums) ⇒ <code>Promise</code>
     * [.getArtist(id)](#Tidal+getArtist) ⇒ <code>Promise</code>
-    * [.getFavoriteArtists()](#Tidal+getFavoriteArtists) ⇒ <code>Promise</code>
     * [.getArtistAlbums(id)](#Tidal+getArtistAlbums) ⇒ <code>Promise</code>
     * [.getArtistEPsAndSingles(id)](#Tidal+getArtistEPsAndSingles) ⇒ <code>Promise</code>
     * [.getArtistCompilations(id)](#Tidal+getArtistCompilations) ⇒ <code>Promise</code>
     * [.getArtistTopTracks(id, [limit])](#Tidal+getArtistTopTracks) ⇒ <code>Promise</code>
     * [.getSimilarArtists(id)](#Tidal+getSimilarArtists) ⇒ <code>Promise</code>
+    * [.getFavoriteArtists()](#Tidal+getFavoriteArtists) ⇒ <code>Promise</code>
     * [.getPlaylist(uuid)](#Tidal+getPlaylist) ⇒ <code>Promise</code>
     * [.getPlaylistTracks(uuid)](#Tidal+getPlaylistTracks) ⇒ <code>Promise</code>
     * [.artistPicToUrl(uuid)](#Tidal+artistPicToUrl) ⇒ <code>Object</code>
@@ -291,23 +291,6 @@ tidal.getArtist(3575680)
     "popularity": 28
   }
 ```
-<a name="Tidal+getFavoriteArtists"></a>
-
-### tidal.getFavoriteArtists() ⇒ <code>Promise</code>
-get your favorite (starred) artists (requires login() to be called)
-
-**Kind**: instance method of [<code>Tidal</code>](#Tidal)  
-**Fulfil**: <code>Array</code> - an array of artist objects  
-**Reject**: <code>Error</code>  
-**See**
-
-- [login](#Tidal+login) - login method must be called first
-- [getArtist](#Tidal+getArtist) - album object example
-
-**Example**  
-```js
-tidal.getFavoriteArtists()
-```
 <a name="Tidal+getArtistAlbums"></a>
 
 ### tidal.getArtistAlbums(id) ⇒ <code>Promise</code>
@@ -398,6 +381,23 @@ get similar artists
 **Example**  
 ```js
 tidal.getSimilarArtists(3575680)
+```
+<a name="Tidal+getFavoriteArtists"></a>
+
+### tidal.getFavoriteArtists() ⇒ <code>Promise</code>
+get your favorite (starred) artists (requires login() to be called)
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)  
+**Fulfil**: <code>Array</code> - an array of artist objects  
+**Reject**: <code>Error</code>  
+**See**
+
+- [login](#Tidal+login) - login method must be called first
+- [getArtist](#Tidal+getArtist) - album object example
+
+**Example**  
+```js
+tidal.getFavoriteArtists()
 ```
 <a name="Tidal+getPlaylist"></a>
 

@@ -408,38 +408,6 @@ class Tidal {
   }
 
   /**
-  * get your favorite (starred) artists (requires login() to be called)
-  * @example tidal.getFavoriteArtists()
-  * @returns {Promise}
-  * @fulfil {Array} - an array of artist objects
-  * @reject {Error}
-  * @see {@link Tidal#login} - login method must be called first
-  * @see {@link Tidal#getArtist} - album object example
-  */
-  async getFavoriteArtists() {
-
-    if (!this.userId || !this.sessionId) {
-      throw new Error('You must call the login method first');
-    }
-
-    try {
-
-      const res = await this.api({
-        method: 'GET',
-        url: `/users/${this.userId}/favorites/artists?${this.params}`,
-      });
-
-      const { items } = res.data;
-
-      const artists = items.map(item => item.item);
-
-      return artists;
-    } catch (e) {
-      throw e;
-    }
-  }
-
-  /**
   * get artist albums by artist id
   * @param {number} id - artist id
   * @example tidal.getArtistAlbums(3575680)
@@ -550,6 +518,38 @@ class Tidal {
       });
 
       return res.data.items;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
+  * get your favorite (starred) artists (requires login() to be called)
+  * @example tidal.getFavoriteArtists()
+  * @returns {Promise}
+  * @fulfil {Array} - an array of artist objects
+  * @reject {Error}
+  * @see {@link Tidal#login} - login method must be called first
+  * @see {@link Tidal#getArtist} - album object example
+  */
+  async getFavoriteArtists() {
+
+    if (!this.userId || !this.sessionId) {
+      throw new Error('You must call the login method first');
+    }
+
+    try {
+
+      const res = await this.api({
+        method: 'GET',
+        url: `/users/${this.userId}/favorites/artists?${this.params}`,
+      });
+
+      const { items } = res.data;
+
+      const artists = items.map(item => item.item);
+
+      return artists;
     } catch (e) {
       throw e;
     }
