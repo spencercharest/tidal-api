@@ -57,6 +57,17 @@ tidal.search('Four Year Strong', 'artists', 1)
         });
     });
 
+  // login and get favorite artists
+  tidal.login('email@example.com', 'password')
+    .then(auth => tidal.getFavoriteArtists())
+    .then((myFavoriteArtists) => {
+      console.log(myFavoriteArtists);
+      return myFavoriteArtists;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
 ```
 
 #### Using ES7 async/await
@@ -66,7 +77,7 @@ import Tidal from 'tidal-api-wrapper';
 const tidal = new Tidal();
 
 // search for an artist and then get their albums
-(async function() {
+(async function searchArtistAndGetAlbums() {
   try {
     const artists = await tidal.search('Four Year Strong', 'artists', 1);
     const artist = artists[0];
@@ -79,13 +90,24 @@ const tidal = new Tidal();
 })();
 
 // get all artist albums and then tracks for each album
-(async function() {
+(async function getAllArtistTracks() {
   try {
     const albums = await tidal.getArtistAlbums(3575680);
     const promises = albums.map(album => tidal.getAlbumTracks(album.id));
     const tracks = await Promise.all(promises);
     console.log(tracks);
     return tracks;
+  } catch (e) {
+    console.log(e);
+  }
+})();
+
+// login and get favorite artists
+(async function getMyFavoriteArtist() {
+  try {
+    const auth = await tidal.login('email@example.com', 'password');
+    const myFavoriteArtists = tidal.getFavoriteArtists();
+    console.log(myFavoriteArtists);
   } catch (e) {
     console.log(e);
   }
