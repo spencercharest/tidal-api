@@ -172,6 +172,38 @@ class Tidal {
   }
 
   /**
+  * get your favorite (starred) tracks (requires login() to be called)
+  * @example tidal.getFavoriteTracks()
+  * @returns {Promise}
+  * @fulfil {Array} - an array of track objects
+  * @reject {Error}
+  * @see {@link Tidal#login} - login method must be called first
+  * @see {@link Tidal#getTrack} - track object example
+  */
+  async getFavoriteTracks() {
+
+    if (!this.userId || !this.sessionId) {
+      throw new Error('You must call the login method first');
+    }
+
+    try {
+
+      const res = await this.api({
+        method: 'GET',
+        url: `/users/${this.userId}/favorites/tracks?${this.params}`,
+      });
+
+      const { items } = res.data;
+
+      const tracks = items.map(item => item.item);
+
+      return tracks;
+    } catch (e) {
+      throw e;
+    }
+  }
+
+  /**
   * get an album by its id
   * @param {number} id - album id
   * @example tidal.getAlbum(80216363)
@@ -530,7 +562,7 @@ class Tidal {
   * @fulfil {Array} - an array of artist objects
   * @reject {Error}
   * @see {@link Tidal#login} - login method must be called first
-  * @see {@link Tidal#getArtist} - album object example
+  * @see {@link Tidal#getArtist} - artist object example
   */
   async getFavoriteArtists() {
 

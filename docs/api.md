@@ -9,6 +9,7 @@ Class
     * [.login(username, password)](#Tidal+login) ⇒ <code>Promise</code>
     * [.search(query, type, [limit])](#Tidal+search) ⇒ <code>Promise</code>
     * [.getTrack(id)](#Tidal+getTrack) ⇒ <code>Promise</code>
+    * [.getFavoriteTracks()](#Tidal+getFavoriteTracks) ⇒ <code>Promise</code>
     * [.getAlbum(id)](#Tidal+getAlbum) ⇒ <code>Promise</code>
     * [.getAlbumTracks(id)](#Tidal+getAlbumTracks) ⇒ <code>Promise</code>
     * [.getTopAlbums()](#Tidal+getTopAlbums) ⇒ <code>Promise</code>
@@ -135,6 +136,23 @@ tidal.getTrack(64975224)
         "cover": "5ac41fbb-927b-427e-8224-87bf12d218a3"
     }
   }
+```
+<a name="Tidal+getFavoriteTracks"></a>
+
+### tidal.getFavoriteTracks() ⇒ <code>Promise</code>
+get your favorite (starred) tracks (requires login() to be called)
+
+**Kind**: instance method of [<code>Tidal</code>](#Tidal)  
+**Fulfil**: <code>Array</code> - an array of track objects  
+**Reject**: <code>Error</code>  
+**See**
+
+- [login](#Tidal+login) - login method must be called first
+- [getTrack](#Tidal+getTrack) - track object example
+
+**Example**  
+```js
+tidal.getFavoriteTracks()
 ```
 <a name="Tidal+getAlbum"></a>
 
@@ -393,7 +411,7 @@ get your favorite (starred) artists (requires login() to be called)
 **See**
 
 - [login](#Tidal+login) - login method must be called first
-- [getArtist](#Tidal+getArtist) - album object example
+- [getArtist](#Tidal+getArtist) - artist object example
 
 **Example**  
 ```js
