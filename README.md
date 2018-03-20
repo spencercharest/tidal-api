@@ -31,7 +31,10 @@ var tidal = new Tidal();
 
 ```js
 import Tidal from 'tidal-api-wrapper';
-const tidal = new Tidal();
+const tidal = new Tidal({
+  countryCode: 'US',
+  limit: 1000
+});
 
 // search for an artist and then get their albums
 tidal.search('Four Year Strong', 'artists', 1)
@@ -74,7 +77,10 @@ tidal.search('Four Year Strong', 'artists', 1)
 
 ```js
 import Tidal from 'tidal-api-wrapper';
-const tidal = new Tidal();
+const tidal = new Tidal({
+  countryCode: 'US',
+  limit: 1000
+});
 
 // search for an artist and then get their albums
 (async function searchArtistAndGetAlbums() {
