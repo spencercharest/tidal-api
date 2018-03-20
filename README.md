@@ -16,6 +16,8 @@ Import tidal-api-wrapper and instantiate it.
 ```js
 var Tidal = require('tidal-api-wrapper');
 
+// options object as an argument is optional
+// if omitted Tidal will default to these values
 var tidal = new Tidal();
 ```
 
@@ -31,6 +33,8 @@ var tidal = new Tidal();
 
 ```js
 import Tidal from 'tidal-api-wrapper';
+// options object as an argument is optional
+// if omitted Tidal will default to these values
 const tidal = new Tidal({
   countryCode: 'US',
   limit: 1000
@@ -77,6 +81,8 @@ tidal.search('Four Year Strong', 'artists', 1)
 
 ```js
 import Tidal from 'tidal-api-wrapper';
+// options object as an argument is optional
+// if omitted Tidal will default to these values
 const tidal = new Tidal({
   countryCode: 'US',
   limit: 1000

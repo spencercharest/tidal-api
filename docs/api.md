@@ -6,7 +6,7 @@ Class
 **Kind**: global class  
 
 * [Tidal](#Tidal)
-    * [new Tidal(options)](#new_Tidal_new)
+    * [new Tidal([options])](#new_Tidal_new)
     * [.login(username, password)](#Tidal+login) ⇒ <code>Promise</code>
     * [.search(query, type, [limit])](#Tidal+search) ⇒ <code>Promise</code>
     * [.getTrack(id)](#Tidal+getTrack) ⇒ <code>Promise</code>
@@ -32,11 +32,11 @@ Class
 
 <a name="new_Tidal_new"></a>
 
-### new Tidal(options)
+### new Tidal([options])
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| options | <code>object</code> |  | Tidal options |
+| [options] | <code>object</code> |  | Tidal options (optional) |
 | [options.countryCode] | <code>string</code> | <code>&quot;US&quot;</code> | Tidal country code |
 | [options.limit] | <code>number</code> | <code>1000</code> | API results limit |
 

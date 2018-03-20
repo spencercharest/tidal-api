@@ -6,7 +6,7 @@ class Tidal {
 
   /**
    *
-   * @param {object} options - Tidal options
+   * @param {object} [options] - Tidal options (optional)
    * @param {string} [options.countryCode=US] - Tidal country code
    * @param {number} [options.limit=1000] - API results limit
    */
