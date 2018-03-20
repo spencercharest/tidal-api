@@ -16,8 +16,6 @@ Import tidal-api-wrapper and instantiate it.
 ```js
 var Tidal = require('tidal-api-wrapper');
 
-// options object as an argument is optional
-// if omitted Tidal will default to these values
 var tidal = new Tidal();
 ```
 
