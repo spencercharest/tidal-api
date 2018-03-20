@@ -6,6 +6,7 @@ Class
 **Kind**: global class  
 
 * [Tidal](#Tidal)
+    * [new Tidal(options)](#new_Tidal_new)
     * [.login(username, password)](#Tidal+login) ⇒ <code>Promise</code>
     * [.search(query, type, [limit])](#Tidal+search) ⇒ <code>Promise</code>
     * [.getTrack(id)](#Tidal+getTrack) ⇒ <code>Promise</code>
@@ -28,6 +29,16 @@ Class
     * [.getFavoritePlaylists()](#Tidal+getFavoritePlaylists) ⇒ <code>Promise</code>
     * [.artistPicToUrl(uuid)](#Tidal+artistPicToUrl) ⇒ <code>Object</code>
     * [.albumArtToUrl(uuid)](#Tidal+albumArtToUrl) ⇒ <code>Object</code>
+
+<a name="new_Tidal_new"></a>
+
+### new Tidal(options)
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| options | <code>object</code> |  | Tidal options |
+| [options.countryCode] | <code>string</code> | <code>&quot;US&quot;</code> | Tidal country code |
+| [options.limit] | <code>number</code> | <code>1000</code> | API results limit |
 
 <a name="Tidal+login"></a>
 

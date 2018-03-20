@@ -4,10 +4,17 @@ import qs from 'querystring';
 /** Class */
 class Tidal {
 
-  constructor() {
+  /**
+   *
+   * @param {object} options - Tidal options
+   * @param {string} [options.countryCode=US] - Tidal country code
+   * @param {number} [options.limit=1000] - API results limit
+   */
+  constructor(options = {}) {
     this.url = 'https://api.tidal.com/v1';
     this.webToken = 'wdgaB1CilGA-S_s2';
-    this.countryCode = 'US';
+    this.countryCode = options.countryCode || 'US';
+    this.limit = options.limit || 1000;
     this.api = axios.create({
       baseURL: this.url,
       headers: {
@@ -15,9 +22,9 @@ class Tidal {
       },
     });
     // some base params for GET requests
-    this.params = `limit=10000&countryCode=${this.countryCode}`;
+    this.params = `limit=${this.limit}&countryCode=${this.countryCode}`;
     // params for Tidal pages that require a locale and device type
-    this.localeParams = 'locale=en_US&deviceType=BROWSER&countryCode=US';
+    this.localeParams = `locale=en_${this.countryCode}&deviceType=BROWSER&countryCode=${this.countryCode}`;
   }
 
   /**
