@@ -4,9 +4,12 @@ import Tidal from '../src';
 
 chai.use(chaiAsPromised);
 
-const tidal = new Tidal();
-
 describe('playlist', () => {
+  let tidal;
+
+  beforeEach(() => {
+    tidal = new Tidal();
+  });
 
   describe('getPlaylist', () => {
 
@@ -35,16 +38,33 @@ describe('playlist', () => {
   });
 
   describe('getFavoritePlaylists', () => {
-
-    it('should reject if login() has not been called', () => expect(tidal.getFavoritePlaylists()).to.eventually.be.rejectedWith(Error));
+    it('should reject if login() has not been called', () => {
+      expect(tidal.getFavoritePlaylists()).to.eventually.be.rejectedWith(Error);
+    });
 
     it('should return an array of playlist objects', async () => {
-
       await tidal.login(process.env.USERNAME, process.env.PASSWORD);
       const favorites = await tidal.getFavoritePlaylists();
       const playlist = favorites[0];
 
       expect(favorites).to.be.an('array');
+
+      expect(playlist).to.be.an('object')
+        .and.to.have.property('uuid');
+    });
+
+  });
+
+  describe('getPlaylists', () => {
+    it('should reject if login() has not been called', () => expect(tidal.getPlaylists()).to.eventually.be.rejectedWith(Error));
+
+    it('should return an array of playlist objects', async () => {
+      await tidal.login(process.env.USERNAME, process.env.PASSWORD);
+      const playlists = await tidal.getPlaylists();
+      const playlist = playlists[0];
+
+      expect(playlists).to.be.an('array')
+        .and.to.have.lengthOf(1);
 
       expect(playlist).to.be.an('object')
         .and.to.have.property('uuid');

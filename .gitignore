@@ -3,3 +3,4 @@ out/
 coverage/
 .env
 docs.js
+node_modules
